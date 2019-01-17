@@ -1,3 +1,4 @@
+// original function
 export function func(s, a, b) {
   // check if string is empty
   if (s.match(/^$/)) {
@@ -37,10 +38,9 @@ export function func(s, a, b) {
 }
 
 export const refactoredFunc = (str, a, b) => {
-  const isStrNotString = typeof str !== 'string'
-  const areNotArgs = (str || a || b) == null // checks if any arg is null || undefined by coercion
+  const hasNotArgs = (str || a || b) == null // checks if any arg is null || undefined by coercion
 
-  if (typeof str !== 'string' || str.length === 0 || areNotArgs) return -1
+  if (typeof str !== 'string' || str.length === 0 || hasNotArgs) return -1
 
   const aIndex = str.lastIndexOf(a)
   const bIndex = str.lastIndexOf(b)
