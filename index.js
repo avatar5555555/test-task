@@ -37,12 +37,12 @@ export function func(s, a, b) {
   }
 }
 
-const getIsValisString = (str) => typeof str === 'string' && str !== ""
+const getIsStringValid = (str) => typeof str === 'string' && str !== ""
 
 export function refactoredFunc(s, a, b) {
-  const isAValid = getIsValisString(a)
-  const isBValid = getIsValisString(b)
-  const isSValid = getIsValisString(s)
+  const isAValid = getIsStringValid(a)
+  const isBValid = getIsStringValid(b)
+  const isSValid = getIsStringValid(s)
 
   if (isSValid && (isAValid || isBValid)) {
     const aIndex = isAValid? str.lastIndexOf(a): -1
