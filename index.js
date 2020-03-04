@@ -37,13 +37,19 @@ export function func(s, a, b) {
   }
 }
 
-export const refactoredFunc = (str, a, b) => {
-  const hasNotArgs = (str || a || b) == null // checks if any arg is null || undefined by coercion
+const getIsValisString = (str) => typeof str === 'string' && str !== ""
 
-  if (typeof str !== 'string' || str.length === 0 || hasNotArgs) return -1
+export function refactoredFunc(s, a, b) {
+  const isAValid = getIsValisString(a)
+  const isBValid = getIsValisString(b)
+  const isSValid = getIsValisString(s)
 
-  const aIndex = str.lastIndexOf(a)
-  const bIndex = str.lastIndexOf(b)
-
-  return Math.max(aIndex, bIndex)
+  if (isSValid && (isAValid || isBValid)) {
+    const aIndex = isAValid? str.lastIndexOf(a): -1
+    const bIndex = isBValid ? str.lastIndexOf(b): -1
+  
+    return Math.max(aIndex, bIndex)
+  }
+  
+  return -1
 }
